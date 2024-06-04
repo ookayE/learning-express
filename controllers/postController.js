@@ -1,6 +1,12 @@
+let posts = [
+  { id: 1, title: "Post One" },
+  { id: 2, title: "Post Two" },
+  { id: 3, title: "Post Three" },
+];
+
 //@desc     Get all posts
 //@route    GET /api/posts
-const getPosts = (request, response, next) => {
+export const getPosts = (request, response, next) => {
   const limit = parseInt(request.query.limit);
 
   //check to make sure limit is a positive number
@@ -14,7 +20,7 @@ const getPosts = (request, response, next) => {
 
 //@desc     Get single post
 //@route    GET /api/posts/:id
-const getPost = (request, response, next) => {
+export const getPost = (request, response, next) => {
   const id = parseInt(request.params.id);
   const post = posts.find((post) => post.id === id);
 
@@ -29,7 +35,7 @@ const getPost = (request, response, next) => {
 
 //@desc     Create new post
 //@route    POST /api/posts/:id
-const createPost = (request, response, next) => {
+export const createPost = (request, response, next) => {
   const newPost = {
     id: posts.length + 1,
     title: request.body.title,
@@ -48,7 +54,7 @@ const createPost = (request, response, next) => {
 
 //@desc     Update post
 //@route    PUT /api/posts/:id
-const updatePost = (request, response, next) => {
+export const updatePost = (request, response, next) => {
   const id = parseInt(request.params.id);
   const post = posts.find((post) => post.id === id);
 
@@ -64,7 +70,7 @@ const updatePost = (request, response, next) => {
 
 //@desc     Delete post
 //@route    Delete /api/posts/:id
-(request, response, next) => {
+export const deletePost = (request, response, next) => {
   const id = parseInt(request.params.id);
   const post = posts.find((post) => post.id === id);
 
