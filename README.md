@@ -17,3 +17,5 @@ const error = new Error(`A post with the ID of ${id} was not found`);
 in posts.js
 
 To be more specific with error message, we can access our error message (found in posts.js) in our errorHandler middleware via the error parameter we are passing in as an argument.
+
+Using colors dependency to make logging more clear
