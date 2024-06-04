@@ -22,8 +22,8 @@ const showPosts = async () => {
 // Submit new post
 async function addPost(e) {
   e.preventDefault();
-  const formData = new FormData("title");
-  const title = formData.get("titleZ");
+  const formData = new FormData(this);
+  const title = formData.get("title");
 
   try {
     const response = await fetch("http://localhost:5000/api/posts", {
@@ -42,6 +42,7 @@ async function addPost(e) {
     const postElement = document.createElement("div");
     postElement.textContent = newPost.title;
     output.appendChild(postElement);
+    showPosts();
   } catch (error) {
     console.log("error adding post");
   }
